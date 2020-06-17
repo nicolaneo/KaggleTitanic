@@ -1,4 +1,3 @@
-## Copyright (C) 2020 Nicola Neophytou
 ## Author: Nicola Neophytou 
 ## Created: 2020-05-18
 
