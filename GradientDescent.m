@@ -33,10 +33,10 @@ for iter = 1:num_iters
      stepTheta(j+1) = Xdiff(j)/m;
    end
     
-    %Update theta matrix
+    # Update theta matrix
     theta = theta - alpha*stepTheta;
 
-    % Save the cost J in every iteration    
+    # Save the cost J in every iteration    
     [J_history, grad] = calculateCost(theta, h, X, y);
     fprintf('Cost value (should be falling): \n');
     fprintf(' %f \n', J_history);
