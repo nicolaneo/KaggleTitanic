@@ -30,7 +30,7 @@ ON THE TRAINING DATA:
 5. Adding the interept term to the feature matrix. 
 6. A hypothesis and cost function are calculated using an initial parameter matrix (theta) of zeros. 
 7. Gradient descent implemented to find the parameters for which the cost function is minimised. 
-8. Outcomes of survival or death are subsequently predicted using the optimised parameters. An accuracy on the training data is obtained.
+8. Outcomes of survival or death are subsequently predicted using the optimised parameters, and a threshold of 65% to pass survival probability. An accuracy on the training data is obtained.
 
 ON THE TEST DATA:
 1. Test data is prepared, using the same methods as with the training data.
