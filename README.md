@@ -6,6 +6,7 @@ The features provided in the training and test raw data (train.csv and test.csv)
 - Passenger name, including Title. e.g. Mrs, Ms, Dr, etc.
 - Sex, male or female
 - Age
+- PClass, passenger class, 1, 2 or 3. 1 is the highest, 3 is the lowest. 
 - SibSp, the number of Siblings and Spouses travelling with them
 - ParCh, the number of Parents and Children travelling with them
 - Ticket number
@@ -20,7 +21,7 @@ I tested using polynomial features, however I found these did not improve the ov
 
 The general sequence of the algorithm is as follows:
 
-ON THE TRAININ DATA:
+ON THE TRAINING DATA:
 1. Find correlation coefficients between features
 2. Prepare the data (see discussion later)
 3. Plot the data
@@ -32,13 +33,20 @@ ON THE TRAININ DATA:
 9. Outcomes of survival or death are subsequently predicted using the optimised parameters. An accuracy on the training data is obtained.
 
 ON THE TEST DATA:
-10. Test data is prepared, using the same methods as with the training data.
-11. Optimised parameters used to make survival or death predictions.
+1. Test data is prepared, using the same methods as with the training data.
+2. Optimised parameters used to make survival or death predictions.
 
 
-## Discussion of raw data
+## Discussion and preparation of raw data
+In the raw training data, there are missing values for the following features:
+- Age
+- Cabin
 
+The missing age values were filled by looking at the correlation data. The feature with highest correlation with passenger Age is PClass. So depending on the passenger class, the missing age is filled with the median passenger age in that class. 
+There were much more missing Cabin values than actual available values, so filling these in using correlation coefficients would not produce as accurate results. So the missing values were put into their own category, "M" for missing.
+Since there is so much missing Cabin data, the numbers are removed and the letter pertaining to the deck is kept, so they are just categorised by deck. Decks are then grouped based on their similar features. 
 
+Passenger Titles extracted from the Name feature are assigned a value (for convenience, it's easier to work with numbers rather than strings in MatLab matrices). Some of the less frequent Titles are combined with more frequent based on their similarities.
 
-## Preparing the data
+Ticket number is dismissed as a feature, as their formats differ and it's assumed ticket number would not reflect probability of survival. 
 
